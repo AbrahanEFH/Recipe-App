@@ -6,11 +6,111 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    margin: 10;
-    min-height: 100vh;
+    margin: 0;
+
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+    padding: 7rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+.mobile-container {
+    background-color: white;
+    box-shadow: 0 0 10px 2px #3333331a;
+    overflow: hidden;
+    width: 400px;
+}
+
+header {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+header input {
+    background-color: #e4e9eb;
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    border: none;
+}
+
+header button {
+    background-color: transparent;
+    border: none;
+    color: #aaa;
+    font-size: 1.5rem;
+    margin-left: 10px;
+}
+
+.fav-container {
+    background-color: #d7dff1;
+    padding: 1rem;
+    text-align: center;
+   
+}
+
+.fav-meals {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+.fav-meals li {
+    margin: 5px;
+    width: 85px;
+}
+
+.fav-meals li img {
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px #3333331a;
+    object-fit: cover;
+    height: 80px;
+    width: 80px;
+} 
+
+.fav-meals li span {
+    font-size: 0.9rem;
+}
+
+.meal {
+    margin: 1rem;
+    box-shadow: 0 0 10px 2px #3333331a;
+    border-radius: 4px;
+
+}
+
+.meal-header {
+    position: relative;
+}
+    
+
+.meal-header .random {
+    position: absolute;
+    top: 1rem;
+    background-color: #FFF;
+    padding: 0.25rem 0.5rem;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+}
+
+.meal-header img {
+    object-fit: cover;
+    height: 250px;
+    width: 100%;
+}
+
+.meal-body {
 
 }
