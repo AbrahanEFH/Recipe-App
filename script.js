@@ -48,8 +48,35 @@ function addMeal(mealData, random = false) {
 
     const btn = meal.querySelector('.meal-body .fav-btn')
     btn.addEventListener('click', () => { 
+        if(btn.classList.contains('active')){
+            removeMealLs(mealData.idMeal)
+            btn.classList.remove('active');
+
+        } else {
+            addMealLs(mealData.idMeal)
+            btn.classList.add('active');
+        }
         btn.classList.toggle('active');
     });
 
     meals.appendChild(meal)
+}
+
+function addMealToLs(mealId) {
+    const mealIds = getMealsLs()
+
+    localStorage.setItem('mealIds', JSON.stringify([...mealIds, mealId]))
+}
+
+function removeMealLs(mealId) {
+    const mealIds = getMealsLs()
+
+    localStorage.setItem('mealIds', JSON.stringify(mealIds.filter(id => id !== mealId)))
+
+}
+
+function getMealsLs() {
+    const mealIds = JSON.parse(localStorage.getItem('mealIds'))
+
+    return mealIds === null ? [] : mealIds;
 }
