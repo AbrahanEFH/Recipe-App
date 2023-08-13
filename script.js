@@ -56,13 +56,13 @@ function addMeal(mealData, random = false) {
             addMealLs(mealData.idMeal)
             btn.classList.add('active');
         }
-        btn.classList.toggle('active');
+        //btn.classList.toggle('active');
     });
 
     meals.appendChild(meal)
 }
 
-function addMealToLs(mealId) {
+function addMealLs(mealId) {
     const mealIds = getMealsLs()
 
     localStorage.setItem('mealIds', JSON.stringify([...mealIds, mealId]))
@@ -71,7 +71,9 @@ function addMealToLs(mealId) {
 function removeMealLs(mealId) {
     const mealIds = getMealsLs()
 
-    localStorage.setItem('mealIds', JSON.stringify(mealIds.filter(id => id !== mealId)))
+    localStorage.setItem('mealIds',
+     JSON.stringify(mealIds.filter((id ) => id 
+        !== mealId)))
 
 }
 
@@ -79,4 +81,8 @@ function getMealsLs() {
     const mealIds = JSON.parse(localStorage.getItem('mealIds'))
 
     return mealIds === null ? [] : mealIds;
+}
+
+function fetchFavMeals () {
+    const mealIds = getMealsLs()
 }
