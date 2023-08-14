@@ -1,6 +1,8 @@
 
 const mealsEL = document.getElementById('meals')
 const favContainer = document.getElementById('fav-meals')
+const mealPopup = document.getElementById('meal-popup')
+const popupClose = document.getElementById('close-popup')
 
 
 const searchTerm = document.getElementById('search-term')
@@ -150,4 +152,8 @@ searchBtn.addEventListener('click',async() => {
 
     }
 
+})
+
+popupClose.addEventListener('click', () => {
+    mealPopup.classList.add('hidden');  
 })
