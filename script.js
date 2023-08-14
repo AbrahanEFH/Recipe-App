@@ -2,6 +2,7 @@
 const mealsEL = document.getElementById('meals')
 const favContainer = document.getElementById('fav-meals')
 const mealPopup = document.getElementById('meal-popup')
+const mealInfoEl = document.getElementById('meal-info')
 const popupClose = document.getElementById('close-popup')
 
 
@@ -80,6 +81,10 @@ function addMeal(mealData, random = false) {
         fetchFavMeals()
     });
 
+    meal.addEventListener('click', () => {
+        showMealInfo(mealData)
+    })
+
     mealsEL.appendChild(meal)
 }
 
@@ -121,6 +126,8 @@ async function fetchFavMeals () {
 function addMealFav(mealData) {
     const favMeal = document.createElement('li')
 
+
+
     favMeal.innerHTML = `
                         <img src="${mealData.strMealThumb} "
                          alt="${mealData.strMeal} ">
@@ -135,7 +142,56 @@ function addMealFav(mealData) {
         fetchFavMeals()
     })
 
+    favMeal.addEventListener('click', () => {
+        showMealInfo(mealData)
+    })
+
     favContainer.appendChild(favMeal)
+}
+
+function showMealInfo(mealData){
+    // Clean it up
+    mealInfoEl.innerHTML = ''
+    // Update meal info
+    const mealEl = document.createElement('div')
+
+    const ingredients = [];
+
+    // get ingredients and measures
+    for (let i = 1; i <=20; i++) {
+        if(mealData['strIngredient'+i]) {
+            ingredients.push(`${mealData['strIngredient'+i]} - ${mealData['strMeasure'+i]} `)
+        }else {
+            break;
+        }
+    }
+
+    mealEl.innerHTML = `
+                <h1>${mealData.strMeal} </h1>
+                <img 
+                src="${mealData.strMealThumb} " alt="${mealData.strMealThumb}">
+
+                <p>
+                    ${mealData.strInstructions}
+                </p>
+                <h3>Ingredients:</h3>
+                <ul>
+                    ${ingredients
+                        .map(
+                        (ing )=> `
+                    <li>${ing}</li>
+                    `
+                    )
+                    .join("")}
+                </ul>
+
+    `
+
+    mealInfoEl.appendChild(mealEl)
+
+    //show de popup
+    mealPopup.classList.remove('hidden')
+
 }
 
 searchBtn.addEventListener('click',async() => {

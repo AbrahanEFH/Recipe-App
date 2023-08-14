@@ -67,6 +67,7 @@ header button {
 }
 
 .fav-meals li {
+    cursor: pointer;
     position: relative;
     margin: 5px;
     width: 85px;
@@ -109,6 +110,7 @@ header button {
     margin: 1rem;
     box-shadow: 0 0 10px 2px #3333331a;
     border-radius: 4px;
+    cursor: pointer;
     overflow: hidden;
 
 }
@@ -157,7 +159,7 @@ header button {
     color: rgb(152, 152, 245);
 }
 
-.meal-info-container {
+.popup-container {
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
@@ -169,15 +171,17 @@ header button {
     bottom: 0;
 }
 
-.meal-info-container.hidden {
+.popup-container.hidden {
     opacity: 0;
     pointer-events: none;
 }
 
-.meal-info {
+.popup {
     background-color: #cfd9df;
     border-radius: 10px;
     padding: 2rem;
+    overflow: auto;
+    max-height: 100vh;
     max-width: 650px;
     width: 100%;
     position: relative;
@@ -187,7 +191,7 @@ header button {
     text-align: center;
 }
 
-.meal-info .close-popup {
+.popup .close-popup {
     background-color: transparent;
     border: none;
     cursor: pointer;
